@@ -1,2 +1,22 @@
+<h4>
+    <a href="/musicians">Back</a>
+</h4>
 <h1>{{ musician.name }}</h1>
+{% load humanize %}
+<p> <strong>Bio:</strong> {{ musician.artist_bio }}</p>
+<p> <strong>Net worth:</strong> {{ musician.net_worth|intcomma }}</p>
+
+<h3 style="margin-bottom: -12px">Albums</h3>
+<ul>
+    {% for album in albums %}
+        <li>
+          <!-- <a href="/musician/{{ musician.id }}">{{ musician.name }}</a> -->
+          <strong>Name:</strong> <a href="{% url 'album_info' album.id %}"> {{ album.name }} </a>
+          <br/>
+          <strong>Genre:</strong> {{ album.genre }}
+          <br/>
+          <strong>Date Released:</strong> {{ album.publish_date }}
+        </li>
+    {% endfor %}
+</ul>
 

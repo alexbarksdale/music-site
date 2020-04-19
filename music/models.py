@@ -3,6 +3,8 @@ from django.db import models
 
 class Musician(models.Model):
     name = models.CharField(max_length=50)
+    artist_bio = models.CharField(max_length=350, default='')
+    net_worth = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
