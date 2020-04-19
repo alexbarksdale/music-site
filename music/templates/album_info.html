@@ -1,5 +1,5 @@
 <h4>
-    <a href="/musician/{{album.id}}">Back</a>
+    <a href="/musician/{{album.artist.id}}">Back to artist</a>
 </h4>
 
 <h1>{{ album.name }}</h1>
@@ -13,7 +13,7 @@
 <ul>
     {% for song in songs %}
         <li>
-          <strong>{{song.name}}</strong>
+          <strong>Name:</strong> <a href="{% url 'song_info' song.id %}"> {{ song.name }} </a>
         </li>
     {% endfor %}
 </ul>
