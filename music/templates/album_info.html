@@ -1,2 +1,20 @@
+<h4>
+    <a href="/musician/{{album.id}}">Back</a>
+</h4>
+
 <h1>{{ album.name }}</h1>
+<strong>Artist:</strong> {{ album.artist }}
+<br/>
+<strong>Genre:</strong> {{ album.genre }}
+<br/>
+<strong>Date Released:</strong> {{ album.publish_date }}
+
+<h3 style="margin-bottom: -12px">Songs</h3>
+<ul>
+    {% for song in songs %}
+        <li>
+          <strong>{{song.name}}</strong>
+        </li>
+    {% endfor %}
+</ul>
 

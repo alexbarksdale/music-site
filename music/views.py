@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Musician, Album
+from .models import Musician, Album, Song
 
 
 def home(request):
@@ -26,6 +26,7 @@ def musician_info(request, musician_id):
 def album_info(request, album_id):
     context = {
         'album': Album.objects.get(id=album_id),
+        'songs': Song.objects.filter(album=album_id)
 
     }
     return render(request, 'album_info.html', context)
